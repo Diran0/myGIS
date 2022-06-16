@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Улицы {% endblock %}</h1>
+    {% for counts in count %}
+    <h3> Всего улиц в выбранных микрорайонах {{counts['num']}}.</h3>
+    {% endfor %} 
+    <table>
+    <tr><th style="background-color: #BCBCBC">Улица</th><th style="background-color: #BCBCBC">Микрорайон</th></tr>
+    {% for post in posts %}
+    <div class='post'>
+    <tr><td><a href="{{ post['ulic_url'] }}">{{ post['ulic_name'] }}</a></td><td><a href="/micro/{{ post['micro_url'] }}">{{ post['micro_name'] }}</a></td></tr>
+    </div>
+    {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Микрорайоны {% endblock %}</h1>
+    {% for counts in count %}
+    <h2> Всего микрорайонов в выбранных районах {{counts['num']}}</h2>
+    {% endfor %}    <table>
+    <tr><th style="background-color: #BCBCBC">№</th><th style="background-color: #BCBCBC">Микрорайон</th><th style="background-color: #BCBCBC">Район</th></tr>
+    {% for post in posts %}
+    <div class='post'>
+    <tr><td>{{ post['num'] }}</td><td><a href="/micro/{{ post['micro_url'] }}">{{ post['micro_name'] }}</a></td><td><a href="{{ post['raion_url'] }}">{{ post['raion_name'] }}</a></td></tr>
+    </div>
+    {% endfor %}
+    </table>
+{% endblock %}

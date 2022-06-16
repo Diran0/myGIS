@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Районы {% endblock %}</h1>
+    {% for counts in count %}
+    <h2> Всего {{counts['num']}} районов </h2>
+    {% endfor %}
+    <table>
+    <tr><th style="background-color: #BCBCBC">№</th><th style="background-color: #BCBCBC">Название</th></tr>
+    {% for post in posts %}
+    <div class='post'>
+    <tr><td>{{ post['num'] }}</td><td><a href="{{ post['raion_url'] }}">{{ post['raion_name'] }}</a></td></tr>
+    </div>
+    {% endfor %}
+    </table>
+{% endblock %}

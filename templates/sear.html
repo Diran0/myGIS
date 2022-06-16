@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Результаты поиска {% endblock %}</h1>
+    <table>
+    <tr><th>Название улицы</th><th>Тип улицы</th><th>Номер дома</th><th>Корпус дома</th><th>Литера дома</th><th>Населённый пункт</th><th>Район</th></tr>
+    {% for post in rezult %}
+    <div class='post'>
+    <tr><td><a href="{{ post['ulic_url'] }}">{{ post['ulic_namef'] }}</a></td>
+        <td><a href="{{ post['ulic_url'] }}">{{ post['ulic_names'] }}</a></td>
+        <td><a href="{{ post['dom_url'] }}">{{ post['nomer'] }}</a></td>
+        <td><a href="{{ post['dom_url'] }}">{{ post['corp'] }}</a></td>
+        <td><a href="{{ post['dom_url'] }}">{{ post['lit'] }}</a></td>        
+        <td><a href="/micro/{{ post['micro_url'] }}">{{ post['micro_name'] }}</a></td>
+        <td><a href="{{ post['raion_url'] }}">{{ post['raion_name'] }}</a></td>
+    </tr>
+    </div>
+    {% endfor %}
+    </table>
+ {% endblock %}

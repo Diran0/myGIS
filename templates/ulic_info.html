@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Улицы {% endblock %}</h1>
+    {% for counts in count %}
+    <h3> {{counts['ulic_namef']}}, {{counts['ulic_names']}}, длинной {{counts['ulic_longs']}} м.</h3>
+    <h3> Всего домов на данной улице {{counts['num']}} </h3>
+    {% endfor %} 
+<br><hr>
+    <table>
+    <tr><th style="background-color: #BCBCBC">Здание</th><th style="background-color: #BCBCBC">Улица</th><th style="background-color: #BCBCBC">Широта</th><th style="background-color: #BCBCBC">Долгота</th></tr>
+    {% for post in posts %}
+    <div class='post'>
+    <tr><td><a href="{{ post['dom_url'] }}">{{ post['dom_name'] }}</a></td><td><a href="{{ post['dom_ulic'] }}">{{ post['ulic_name'] }}</a></td><td>{{post['dom_coor1']}}</td><td>{{post['dom_coor2']}}</td></tr>
+    </div>
+    {% endfor %}
+    </table>
+    <br><hr>
+    <table>
+    {% for counts in count %}
+    <tr><th style="background-color: #BCBCBC">{{counts['ulic_namef']}}, {{counts['ulic_names']}}, проходит через микрорайоны</th></tr>
+    {% endfor %}
+    {% for m in mics %}
+    <div class='m'>
+    <tr><td><a href="/micro/{{ m['micro_url'] }}">{{ m['micro_name'] }}</a></td><td><a href="{{ m['raion_url'] }}">{{ m['raion_name'] }}</a></td></tr>
+    </div>
+    {% endfor %}
+</table>
+<br><hr>
+    <table>
+    {% for counts in count %}
+    <tr><th style="background-color: #BCBCBC">{{counts['ulic_namef']}}, {{counts['ulic_names']}}, пересекается с:</th></tr>
+    {% endfor %}
+    {% for c in cross %}
+    <div class='c'>
+    <tr><td><a href="{{ c['ulic_url'] }}">{{ c['ulic_names'] }} {{ c['ulic_namef'] }}</a></td></tr>
+    </div>
+    {% endfor %}
+</table>
+{% endblock %}

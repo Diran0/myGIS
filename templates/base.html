@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}- App</title>
+
+</head>
+<body >
+    <nav  style="background-color: #eeeeee">
+        <a href="{{ url_for('index') }}">Справочник</a>
+        <a href="/search">Поиск</a>
+    </nav>
+    <hr>
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
+</body>
+</html>
