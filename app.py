@@ -3,10 +3,10 @@ import sqlite3
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, request, url_for, flash, redirect, abort
 from geopy.distance import geodesic as GD
-
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
-
+Bootstrap(app)
 
 def get_db_connection():
     conn = sqlite3.connect('1.db')
