@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block app_content %}
     <h1>{% block title %} Улицы {% endblock %}</h1>
     {% for counts in count %}
     <h3> {{counts['ulic_namef']}}, {{counts['ulic_names']}}, длинной {{counts['ulic_longs']}} м.</h3>
