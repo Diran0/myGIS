@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block app_content %}
     <h1>{% block title %} Микрорайоны {% endblock %}</h1>
     {% for counts in count %}
     <h2> Всего микрорайонов в выбранных районах {{counts['num']}}</h2>
