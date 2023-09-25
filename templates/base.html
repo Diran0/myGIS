@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %} {% endblock %}- App</title>
+{% extends "bootstrap/base.html" %}
+{% block title %} App {% endblock %}
 
-</head>
-<body >
-    <nav  style="background-color: #eeeeee">
-        <a href="{{ url_for('index') }}">Справочник</a>
+
+{% block navbar %}
+<div class="navbar navbar-fixed-top">
+<a href="{{ url_for('index') }}">Справочник</a>
         <a href="/search">Поиск</a>
-    </nav>
-    <hr>
-    <div class="content">
-        {% block content %} {% endblock %}
+</div>
+{% endblock %}
+{% block content %}
+    <div class="container">
+ {% block app_content %} {% endblock %}
     </div>
-</body>
-</html>
+{% endblock %}
